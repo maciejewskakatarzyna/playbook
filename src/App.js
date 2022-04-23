@@ -23,11 +23,6 @@ function App() {
     setSum([...sum, amountInNumber]);
   };
 
-  // const deleteTransaction = id => {
-  //   const filteredTransactions = transactions.filter(transaction => transaction.id !== id);
-  //   setTransactions(filteredTransactions);
-  // };
-
   return (
     <Wrapper>
       <Header conversionRate={conversionRate} setConversionRate={setConversionRate} />

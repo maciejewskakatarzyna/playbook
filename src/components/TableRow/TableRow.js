@@ -11,7 +11,7 @@ const TableRow = ({ title, amount, id, conversionRate }) => {
   const PLN = amount;
   const EURamount = PLNtoEUR(PLN, EUR);
 
-  const handleRemoveTransaction = id => {
+  const handleRemoveTransaction = () => {
     dispatch(removeTransaction({ id }));
   };
   return (
@@ -20,7 +20,7 @@ const TableRow = ({ title, amount, id, conversionRate }) => {
       <td>{amount}</td>
       <td>{EURamount}</td>
       <td>
-        <button onClick={() => handleRemoveTransaction(id)}>Delete</button>
+        <button onClick={handleRemoveTransaction}>Delete</button>
       </td>
     </tr>
   );
