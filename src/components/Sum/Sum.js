@@ -1,8 +1,11 @@
 import React from 'react';
 import { PLNtoEUR } from '../../helpers/plnToEur';
 import { sumAmount } from '../../helpers/sumAmount';
+import { useSelector } from 'react-redux';
 
-const Sum = ({ transactions, sum, conversionRate }) => {
+const Sum = ({ sum, conversionRate }) => {
+  const transactions = useSelector(state => state.transactions);
+
   const EUR = conversionRate;
 
   const sumPLN = transactions.length && sumAmount(sum);

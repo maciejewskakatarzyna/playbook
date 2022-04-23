@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import FormField from './FormField';
-import faker from '@withshepherd/faker';
+import { useDispatch } from 'react-redux';
+import { addTransaction } from '../../store';
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,28 +24,22 @@ const StyledButton = styled.button`
   height: 2.4rem;
 `;
 
-const Form = ({ addTransaction, getSum }) => {
+const Form = ({ getSum }) => {
+  const dispatch = useDispatch();
+
+  const handleAddTransaction = data => {
+    dispatch(addTransaction(data));
+    getSum(data);
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  let newTransaction = {};
-
-  const handleAddTransaction = transaction => {
-    addTransaction(transaction);
-  };
-
-  const onSubmit = data => {
-    newTransaction = data;
-    newTransaction.id = faker.datatype.uuid();
-    handleAddTransaction(newTransaction);
-    getSum(data);
-  };
-
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm onSubmit={handleSubmit(handleAddTransaction)}>
       <Wrapper>
         <FormField
           label='Title of transaction'

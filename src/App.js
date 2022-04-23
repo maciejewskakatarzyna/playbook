@@ -14,12 +14,7 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-  const [transactions, setTransactions] = useState([]);
   const [conversionRate, setConversionRate] = useState(4.382);
-
-  const addTransaction = transaction => {
-    setTransactions([...transactions, transaction]);
-  };
 
   const [sum, setSum] = useState([]);
 
@@ -28,21 +23,17 @@ function App() {
     setSum([...sum, amountInNumber]);
   };
 
-  const deleteTransaction = id => {
-    const filteredTransactions = transactions.filter(transaction => transaction.id !== id);
-    setTransactions(filteredTransactions);
-  };
+  // const deleteTransaction = id => {
+  //   const filteredTransactions = transactions.filter(transaction => transaction.id !== id);
+  //   setTransactions(filteredTransactions);
+  // };
 
   return (
     <Wrapper>
       <Header conversionRate={conversionRate} setConversionRate={setConversionRate} />
-      <Form addTransaction={addTransaction} getSum={getSum} />
-      <Table
-        transactions={transactions}
-        deleteTransaction={deleteTransaction}
-        conversionRate={conversionRate}
-      />
-      <Sum transactions={transactions} sum={sum} conversionRate={conversionRate} />
+      <Form getSum={getSum} />
+      <Table conversionRate={conversionRate} />
+      <Sum sum={sum} conversionRate={conversionRate} />
     </Wrapper>
   );
 }

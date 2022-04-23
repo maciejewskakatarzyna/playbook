@@ -2,18 +2,18 @@ import React from 'react';
 
 import { PLNtoEUR } from '../../helpers/plnToEur';
 
-const TableRow = ({ transaction, deleteTransaction, conversionRate }) => {
+const TableRow = ({ title, amount, id, deleteTransaction, conversionRate }) => {
   const EUR = conversionRate;
-  const PLN = transaction.amount;
+  const PLN = amount;
 
   const EURamount = PLNtoEUR(PLN, EUR);
   return (
     <tr>
-      <td>{transaction.title}</td>
-      <td>{transaction.amount}</td>
+      <td>{title}</td>
+      <td>{amount}</td>
       <td>{EURamount}</td>
       <td>
-        <button onClick={() => deleteTransaction(transaction.id)}>Delete</button>
+        <button onClick={() => deleteTransaction(id)}>Delete</button>
       </td>
     </tr>
   );

@@ -1,7 +1,10 @@
 import React from 'react';
 import TableRow from '../TableRow/TableRow';
+import { useSelector } from 'react-redux';
 
-const Table = ({ transactions, deleteTransaction, conversionRate }) => {
+const Table = ({ deleteTransaction, conversionRate }) => {
+  const transactions = useSelector(state => state.transactions);
+
   if (transactions.length) {
     return (
       <table>
@@ -14,10 +17,12 @@ const Table = ({ transactions, deleteTransaction, conversionRate }) => {
           </tr>
         </thead>
         <tbody>
-          {transactions.map(transaction => (
+          {transactions.map(({ id, title, amount }) => (
             <TableRow
-              transaction={transaction}
-              key={transaction.id}
+              id={id}
+              title={title}
+              amount={amount}
+              key={id}
               deleteTransaction={deleteTransaction}
               conversionRate={conversionRate}
             />
