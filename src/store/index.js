@@ -30,10 +30,18 @@ const transactionsReducer = (state = initialState, action) => {
         transactions: [...state.transactions, action.payload],
       };
     case 'transactions/remove':
-      return {};
+      return {
+        ...state,
+        transactions: state.transactions.filter(
+          transaction => transaction.id !== action.payload.id
+        ),
+      };
     default:
       return state;
   }
 };
 
-export const store = createStore(transactionsReducer);
+export const store = createStore(
+  transactionsReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
