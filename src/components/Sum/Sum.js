@@ -1,18 +1,15 @@
 import React from 'react';
-import { sumAmount } from '../../helpers/sumAmount';
 import { PLNtoEUR } from '../../helpers/plnToEur';
+import { sumAmount } from '../../helpers/sumAmount';
 
-const EUR = 4.382;
+const Sum = ({ transactions, sum, conversionRate }) => {
+  const EUR = conversionRate;
 
-const sumPLN = sumAmount([1, 2, 3]);
-const sumEUR = PLNtoEUR(sumPLN, EUR);
-
-const Sum = () => {
+  const sumPLN = transactions.length && sumAmount(sum);
+  const sumEUR = PLNtoEUR(sumPLN, EUR);
   return (
     <div>
-      <p>
-        Sum: {sumPLN} PLN ({sumEUR} EUR)
-      </p>
+      <p>{transactions.length ? `Sum: ${sumPLN} PLN (${sumEUR} EUR)` : null}</p>
     </div>
   );
 };

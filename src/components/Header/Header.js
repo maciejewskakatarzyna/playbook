@@ -8,11 +8,22 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Header = () => {
+const Header = ({ conversionRate, setConversionRate }) => {
+  const handleSetConversionRate = rate => {
+    setConversionRate(rate);
+  };
+
   return (
     <Wrapper>
       <h1>List of expenses</h1>
-      <p>1 EUR = 4,382 PLN</p>
+      <p>1 EUR = </p>
+      <input
+        defaultValue={conversionRate}
+        type='number'
+        step='0.001'
+        onChange={e => handleSetConversionRate(e.target.value)}
+      />
+      <p>PLN</p>
     </Wrapper>
   );
 };
