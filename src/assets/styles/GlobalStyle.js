@@ -26,4 +26,8 @@ export const GlobalStyle = createGlobalStyle`
     place-items: center;
     margin: 10rem auto;
   }
+  
+  input, button {
+    font-size: 1.8rem;
+  }
 `;

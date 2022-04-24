@@ -13,15 +13,14 @@ const Wrapper = styled.div`
 `;
 
 const StyledForm = styled.form`
-  margin-bottom: 3rem;
+  margin: 3rem 0;
   display: grid;
   grid-template-columns: 5fr 1fr;
   align-items: flex-end;
 `;
 
 const StyledButton = styled.button`
-  width: 100%;
-  height: 2.4rem;
+  padding: 0.5rem 1rem;
 `;
 
 const Form = ({ getSum }) => {

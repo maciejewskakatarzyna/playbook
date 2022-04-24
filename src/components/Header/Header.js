@@ -20,7 +20,6 @@ const Wrapper = styled.div`
   }
   input {
     width: 7rem;
-    font-size: 1.8rem;
     border: none;
     text-align: center;
   }
