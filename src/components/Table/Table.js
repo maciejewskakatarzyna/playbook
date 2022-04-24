@@ -1,13 +1,31 @@
 import React from 'react';
 import TableRow from '../TableRow/TableRow';
 import { useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 const Table = ({ deleteTransaction, conversionRate }) => {
+  const StyledTable = styled.table`
+    border: 1px solid black;
+    text-align: center;
+    margin-bottom: 2rem;
+    word-wrap: break-word;
+    table-layout: fixed;
+
+    thead {
+      background: gray;
+      height: 3.5rem;
+
+      th {
+        padding: 1rem;
+      }
+    }
+  `;
+
   const transactions = useSelector(state => state.transactions);
 
   if (transactions.length) {
     return (
-      <table>
+      <StyledTable>
         <thead>
           <tr>
             <th>Title</th>
@@ -28,7 +46,7 @@ const Table = ({ deleteTransaction, conversionRate }) => {
             />
           ))}
         </tbody>
-      </table>
+      </StyledTable>
     );
   } else {
     return <p>Add first transaction</p>;
