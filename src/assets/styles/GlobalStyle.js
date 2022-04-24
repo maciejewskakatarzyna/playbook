@@ -17,14 +17,13 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    width: 100rem;
-    height: 100vh;
-    font-size: 1.6rem;
+    width: 150rem;
+    font-size: 1.8rem;
     font-family: 'Arial', sans-serif;
     background-color: white;
     color: black;
     display: grid;
     place-items: center;
-    margin: 0 auto;
+    margin: 10rem auto;
   }
 `;

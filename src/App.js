@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   border: 1px solid red;
   display: grid;
   grid-template-rows: 1fr 2fr 3fr 1fr;
+  padding: 5rem;
 `;
 
 function App() {
