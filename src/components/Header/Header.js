@@ -15,6 +15,7 @@ const Header = () => {
           defaultValue={conversionRate}
           type='number'
           step='0.001'
+          min='0.001'
           onChange={e => handleSetConversionRate(e.target.value)}
         />
         <p>PLN</p>

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { removeTransaction } from '../../store';
 import { StyledRow } from './TableRow.styles';
 import { ConversionRateContext } from '../../Providers/ConversionRateProvider';
+import PropTypes from 'prop-types';
 
 const TableRow = ({ title, amount, id }) => {
   const { conversionRate } = useContext(ConversionRateContext);
@@ -26,6 +27,12 @@ const TableRow = ({ title, amount, id }) => {
       </td>
     </StyledRow>
   );
+};
+
+TableRow.propTypes = {
+  title: PropTypes.string,
+  amount: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default TableRow;
