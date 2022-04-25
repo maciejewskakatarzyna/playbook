@@ -1,36 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { PLNtoEUR } from '../../helpers/plnToEur';
 import { useDispatch } from 'react-redux';
 import { removeTransaction } from '../../store';
+import { StyledRow } from './TableRow.styles';
 
 const TableRow = ({ title, amount, id, conversionRate }) => {
-  const StyledRow = styled.tr`
-    height: 3.5rem;
-    border: 0.1rem solid black;
-
-    &:nth-child(even) {
-      background: #efefef;
-    }
-
-    td {
-      padding: 1rem;
-      border: 0.1rem solid black;
-      line-height: 200%;
-    }
-
-    td:first-child {
-      width: 35%;
-    }
-
-    button {
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-  `;
-
   const dispatch = useDispatch();
 
   const EUR = conversionRate;

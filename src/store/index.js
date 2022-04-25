@@ -18,11 +18,11 @@ export const removeTransaction = payload => {
   };
 };
 
-const initialState = {
+export const initialState = {
   transactions: [],
 };
 
-const transactionsReducer = (state = initialState, action) => {
+export const transactionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'transactions/add':
       return {
@@ -41,7 +41,4 @@ const transactionsReducer = (state = initialState, action) => {
   }
 };
 
-export const store = createStore(
-  transactionsReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+export const store = createStore(transactionsReducer);

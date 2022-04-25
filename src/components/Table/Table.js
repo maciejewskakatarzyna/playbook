@@ -1,46 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import TableRow from '../TableRow/TableRow';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { ArrowDown, Info, StyledTable } from './Table.styles';
 
-const Table = ({ deleteTransaction, conversionRate }) => {
-  const StyledTable = styled.table`
-    border: 0.1rem solid black;
-    text-align: left;
-    margin-bottom: 2rem;
-    word-wrap: break-word;
-    table-layout: fixed;
-    border-collapse: collapse;
-
-    thead {
-      background: lightgrey;
-      height: 3.5rem;
-      border: 0.1rem solid black;
-
-      th {
-        padding: 1rem;
-        border: 0.1rem solid black;
-        font-weight: normal;
-        line-height: 200%;
-      }
-    }
-  `;
-
-  const Info = styled.p`
-    font-weight: bold;
-    font-size: 2.4rem;
-  `;
-
-  const ArrowDown = styled.div`
-    width: 0;
-    height: 0;
-    border-left: 0.7rem solid transparent;
-    border-right: 0.7rem solid transparent;
-    border-top: 1rem solid black;
-    display: inline-block;
-    cursor: pointer;
-  `;
-
+const Table = ({ conversionRate }) => {
   const transactions = useSelector(state => state.transactions);
 
   if (transactions.length) {
@@ -69,7 +32,6 @@ const Table = ({ deleteTransaction, conversionRate }) => {
               title={title}
               amount={amount}
               key={id}
-              deleteTransaction={deleteTransaction}
               conversionRate={conversionRate}
             />
           ))}

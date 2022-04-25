@@ -1,22 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Wrapper } from './FormField.styles';
 
 const FormField = React.forwardRef(
   ({ onChange, value, label, name, id, placeholder, step, type = 'text', ...props }, ref) => {
-    const Wrapper = styled.div`
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      width: 40rem;
-      margin: 1rem 0;
-
-      input {
-        padding: 0.3rem;
-        width: 60%;
-      }
-    `;
-
     return (
       <Wrapper>
         <label htmlFor={id}>{label} </label>
