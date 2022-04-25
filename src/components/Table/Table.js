@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import TableRow from '../TableRow/TableRow';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
@@ -31,6 +31,16 @@ const Table = ({ deleteTransaction, conversionRate }) => {
     font-size: 2.4rem;
   `;
 
+  const ArrowDown = styled.div`
+    width: 0;
+    height: 0;
+    border-left: 0.7rem solid transparent;
+    border-right: 0.7rem solid transparent;
+    border-top: 1rem solid black;
+    display: inline-block;
+    cursor: pointer;
+  `;
+
   const transactions = useSelector(state => state.transactions);
 
   if (transactions.length) {
@@ -38,10 +48,18 @@ const Table = ({ deleteTransaction, conversionRate }) => {
       <StyledTable>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Amount (PLN)</th>
-            <th>Amount (EUR)</th>
-            <th>Options</th>
+            <th>
+              <ArrowDown /> Title
+            </th>
+            <th>
+              <ArrowDown /> Amount (PLN)
+            </th>
+            <th>
+              <ArrowDown /> Amount (EUR)
+            </th>
+            <th>
+              <ArrowDown /> Options
+            </th>
           </tr>
         </thead>
         <tbody>
