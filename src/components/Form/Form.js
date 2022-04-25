@@ -15,12 +15,23 @@ const Wrapper = styled.div`
 const StyledForm = styled.form`
   margin: 3rem 0;
   display: grid;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 5fr 1.5fr;
   align-items: flex-end;
 `;
 
 const StyledButton = styled.button`
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid black;
+  cursor: pointer;
+`;
+
+const Error = styled.p`
+  margin-bottom: 1.3rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: red;
 `;
 
 const Form = ({ getSum }) => {
@@ -55,8 +66,8 @@ const Form = ({ getSum }) => {
         />
         {errors.title ? (
           <>
-            {errors.title.type === 'required' && <p>{errors.title.message}</p>}
-            {errors.title.type === 'minLength' && <p>{errors.title.message}</p>}
+            {errors.title.type === 'required' && <Error>{errors.title.message}</Error>}
+            {errors.title.type === 'minLength' && <Error>{errors.title.message}</Error>}
           </>
         ) : null}
         <FormField

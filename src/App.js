@@ -7,7 +7,6 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   width: 70rem;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   padding: 5rem;

@@ -25,6 +25,10 @@ const Wrapper = styled.div`
   }
 `;
 
+const Title = styled.h1`
+  font-weight: normal;
+`;
+
 const Header = ({ conversionRate, setConversionRate }) => {
   const handleSetConversionRate = rate => {
     setConversionRate(rate);
@@ -32,7 +36,7 @@ const Header = ({ conversionRate, setConversionRate }) => {
 
   return (
     <Wrapper>
-      <h1>List of expenses</h1>
+      <Title>List of expenses</Title>
       <div>
         {' '}
         <p>1 EUR = </p>

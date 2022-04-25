@@ -7,15 +7,21 @@ import { removeTransaction } from '../../store';
 
 const TableRow = ({ title, amount, id, conversionRate }) => {
   const StyledRow = styled.tr`
-    background: lightgray;
     height: 3.5rem;
+    border: 0.1rem solid black;
+
+    &:nth-child(even) {
+      background: #efefef;
+    }
 
     td {
       padding: 1rem;
+      border: 0.1rem solid black;
+      line-height: 200%;
     }
 
     td:first-child {
-      width: 50%;
+      width: 35%;
     }
 
     button {

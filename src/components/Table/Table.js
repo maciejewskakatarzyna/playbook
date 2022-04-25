@@ -5,20 +5,30 @@ import styled from 'styled-components';
 
 const Table = ({ deleteTransaction, conversionRate }) => {
   const StyledTable = styled.table`
-    border: 1px solid black;
-    text-align: center;
+    border: 0.1rem solid black;
+    text-align: left;
     margin-bottom: 2rem;
     word-wrap: break-word;
     table-layout: fixed;
+    border-collapse: collapse;
 
     thead {
-      background: gray;
+      background: lightgrey;
       height: 3.5rem;
+      border: 0.1rem solid black;
 
       th {
         padding: 1rem;
+        border: 0.1rem solid black;
+        font-weight: normal;
+        line-height: 200%;
       }
     }
+  `;
+
+  const Info = styled.p`
+    font-weight: bold;
+    font-size: 2.4rem;
   `;
 
   const transactions = useSelector(state => state.transactions);
@@ -49,7 +59,7 @@ const Table = ({ deleteTransaction, conversionRate }) => {
       </StyledTable>
     );
   } else {
-    return <p>Add first transaction</p>;
+    return <Info>Add first transaction!</Info>;
   }
 };
 
