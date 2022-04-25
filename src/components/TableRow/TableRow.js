@@ -1,11 +1,12 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
 import { PLNtoEUR } from '../../helpers/plnToEur';
 import { useDispatch } from 'react-redux';
 import { removeTransaction } from '../../store';
 import { StyledRow } from './TableRow.styles';
+import { ConversionRateContext } from '../../Providers/ConversionRateProvider';
 
-const TableRow = ({ title, amount, id, conversionRate }) => {
+const TableRow = ({ title, amount, id }) => {
+  const { conversionRate } = useContext(ConversionRateContext);
   const dispatch = useDispatch();
 
   const EUR = conversionRate;

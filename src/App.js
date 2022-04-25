@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from './components/Header/Header';
 import Form from './components/Form/Form';
 import Table from './components/Table/Table';
@@ -13,21 +13,12 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-  const [conversionRate, setConversionRate] = useState(4.382);
-
-  const [sum, setSum] = useState([]);
-
-  const getSum = transaction => {
-    const amountInNumber = parseInt(transaction.amount);
-    setSum([...sum, amountInNumber]);
-  };
-
   return (
     <Wrapper>
-      <Header conversionRate={conversionRate} setConversionRate={setConversionRate} />
-      <Form getSum={getSum} />
-      <Table conversionRate={conversionRate} />
-      <Sum sum={sum} conversionRate={conversionRate} />
+      <Header />
+      <Form />
+      <Table />
+      <Sum />
     </Wrapper>
   );
 }

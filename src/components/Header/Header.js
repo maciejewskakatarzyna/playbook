@@ -1,15 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Wrapper } from './Header.styles';
+import React, { useContext } from 'react';
+import { Title, Wrapper } from './Header.styles';
+import { ConversionRateContext } from '../../Providers/ConversionRateProvider';
 
-const Title = styled.h1`
-  font-weight: normal;
-`;
-
-const Header = ({ conversionRate, setConversionRate }) => {
-  const handleSetConversionRate = rate => {
-    setConversionRate(rate);
-  };
+const Header = () => {
+  const { conversionRate, handleSetConversionRate } = useContext(ConversionRateContext);
 
   return (
     <Wrapper>

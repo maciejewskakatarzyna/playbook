@@ -3,7 +3,7 @@ import TableRow from '../TableRow/TableRow';
 import { useSelector } from 'react-redux';
 import { ArrowDown, Info, StyledTable } from './Table.styles';
 
-const Table = ({ conversionRate }) => {
+const Table = () => {
   const transactions = useSelector(state => state.transactions);
 
   if (transactions.length) {
@@ -27,13 +27,7 @@ const Table = ({ conversionRate }) => {
         </thead>
         <tbody>
           {transactions.map(({ id, title, amount }) => (
-            <TableRow
-              id={id}
-              title={title}
-              amount={amount}
-              key={id}
-              conversionRate={conversionRate}
-            />
+            <TableRow id={id} title={title} amount={amount} key={id} />
           ))}
         </tbody>
       </StyledTable>
