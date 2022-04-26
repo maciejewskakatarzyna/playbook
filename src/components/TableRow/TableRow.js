@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { PLNtoEUR } from '../../helpers/plnToEur';
 import { useDispatch } from 'react-redux';
 import { removeTransaction } from '../../store';
 import { StyledRow } from './TableRow.styles';
 import { ConversionRateContext } from '../../Providers/ConversionRateProvider';
 import PropTypes from 'prop-types';
+import { SumContext } from '../../Providers/SumProvider';
 
 const TableRow = ({ title, amount, id }) => {
   const { conversionRate } = useContext(ConversionRateContext);
+  const { getSumAfterDelete, sum } = useContext(SumContext);
+
   const dispatch = useDispatch();
 
   const EUR = conversionRate;
@@ -17,6 +20,11 @@ const TableRow = ({ title, amount, id }) => {
   const handleRemoveTransaction = () => {
     dispatch(removeTransaction({ id }));
   };
+
+  useEffect(() => {
+    getSumAfterDelete();
+  }, [sum]);
+
   return (
     <StyledRow>
       <td>{title}</td>
