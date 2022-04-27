@@ -16,6 +16,7 @@ const Header = () => {
           type='number'
           step='0.001'
           min='0.001'
+          data-testid='conversionRateInput'
           onChange={e => handleSetConversionRate(e.target.value)}
         />
         <p>PLN</p>
