@@ -6,7 +6,7 @@ import { addTransaction } from '../../store';
 import { Error, StyledButton, StyledForm, Wrapper } from './Form.styles';
 import { SumContext } from '../../Providers/SumProvider';
 
-const Form = () => {
+const Form = ({ onSubmit }) => {
   const { getSum } = useContext(SumContext);
   const dispatch = useDispatch();
 
