@@ -26,8 +26,8 @@ const TableRow = ({ title, amount, id }) => {
   }, [sum]);
 
   return (
-    <StyledRow>
-      <td>{title}</td>
+    <StyledRow data-testid='transactionRow'>
+      <td data-testid='transactionTitle'>{title}</td>
       <td>{amount}</td>
       <td>{EURamount}</td>
       <td>
