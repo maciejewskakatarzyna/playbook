@@ -1,5 +1,4 @@
 import { PLNtoEUR } from './plnToEur';
-import { ConversionRateContext } from '../Providers/ConversionRateProvider';
 
 describe('plnToEur', () => {
   const EUR = 4;
