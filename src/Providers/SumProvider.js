@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useTransactionsStore } from './TransactionsProvider';
 
 export const SumContext = React.createContext({
   sum: [],
@@ -9,7 +9,9 @@ export const SumContext = React.createContext({
 
 const SumProvider = ({ children }) => {
   const [sum, setSum] = useState([]);
-  const transactions = useSelector(state => state.transactions);
+  const transactionsStore = useTransactionsStore();
+
+  const transactions = transactionsStore.transactions;
 
   const getSum = transaction => {
     setSum([...sum, parseInt(transaction.amount)]);

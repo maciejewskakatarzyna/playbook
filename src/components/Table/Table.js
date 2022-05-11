@@ -1,13 +1,14 @@
 import React from 'react';
 import TableRow from '../TableRow/TableRow';
-import { useSelector } from 'react-redux';
 import { ArrowDown, Info, StyledTable } from './Table.styles';
+import { useTransactionsStore } from '../../Providers/TransactionsProvider';
+import { useObserver } from 'mobx-react';
 
 const Table = () => {
-  const transactions = useSelector(state => state.transactions);
+  const transactionsStore = useTransactionsStore();
 
-  if (transactions.length) {
-    return (
+  return useObserver(() =>
+    transactionsStore.transactions.length ? (
       <StyledTable>
         <thead>
           <tr>
@@ -26,15 +27,15 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {transactions.map(({ id, title, amount }) => (
+          {transactionsStore.transactions.map(({ id, title, amount }) => (
             <TableRow id={id} title={title} amount={amount} key={id} />
           ))}
         </tbody>
       </StyledTable>
-    );
-  } else {
-    return <Info>Add first transaction!</Info>;
-  }
+    ) : (
+      <Info>Add first transaction!</Info>
+    )
+  );
 };
 
 export default Table;

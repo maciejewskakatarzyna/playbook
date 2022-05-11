@@ -1,22 +1,19 @@
 import React from 'react';
 import { GlobalStyle } from '../assets/styles/GlobalStyle';
-// @ts-ignore
 import ConversionRateProvider from './ConversionRateProvider';
-// @ts-ignore
 import SumProvider from './SumProvider';
-import { store } from '../store';
-import { Provider } from 'react-redux';
+import { TransactionsProvider } from './TransactionsProvider';
 
 const AppProviders = ({ children }) => {
   return (
-    <Provider store={store}>
+    <TransactionsProvider>
       <ConversionRateProvider>
         <SumProvider>
           <GlobalStyle />
           {children}
         </SumProvider>
       </ConversionRateProvider>
-    </Provider>
+    </TransactionsProvider>
   );
 };
 

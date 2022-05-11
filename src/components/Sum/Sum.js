@@ -1,16 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { PLNtoEUR } from '../../helpers/plnToEur';
 import { sumAmount } from '../../helpers/sumAmount';
-import { useSelector } from 'react-redux';
 import { ConversionRateContext } from '../../Providers/ConversionRateProvider';
 import { SumContext } from '../../Providers/SumProvider';
+import { useTransactionsStore } from '../../Providers/TransactionsProvider';
 
 const Sum = () => {
   const { conversionRate } = useContext(ConversionRateContext);
   const { sum } = useContext(SumContext);
   const [sumValue, setSumValue] = useState({});
+  const transactionsStore = useTransactionsStore();
 
-  const transactions = useSelector(state => state.transactions);
+  const transactions = transactionsStore.transactions;
 
   const EUR = conversionRate;
 

@@ -18,6 +18,7 @@
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-prettier": "^4.0.0",
     "mobx": "^6.5.0",
+    "mobx-react": "^7.4.0",
     "prettier": "^2.6.2",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
@@ -36,14 +37,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:e2e": "cypress open --project ./src/e2e"
-
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest",
       "plugin:cypress/recommended"
-
     ]
   },
   "browserslist": {

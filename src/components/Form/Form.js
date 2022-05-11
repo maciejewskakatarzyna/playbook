@@ -1,17 +1,16 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import FormField from './FormField';
-import { useDispatch } from 'react-redux';
-import { addTransaction } from '../../store';
 import { Error, StyledButton, StyledForm, Wrapper } from './Form.styles';
 import { SumContext } from '../../Providers/SumProvider';
+import { useTransactionsStore } from '../../Providers/TransactionsProvider';
 
-const Form = ({ onSubmit }) => {
+const Form = () => {
   const { getSum } = useContext(SumContext);
-  const dispatch = useDispatch();
+  const transactionsStore = useTransactionsStore();
 
   const handleAddTransaction = data => {
-    dispatch(addTransaction(data));
+    transactionsStore.addTransaction(data);
     getSum(data);
   };
 
