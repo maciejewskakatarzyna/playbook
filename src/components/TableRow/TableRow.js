@@ -1,14 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { PLNtoEUR } from '../../helpers/plnToEur';
 import { StyledRow } from './TableRow.styles';
-import { ConversionRateContext } from '../../Providers/ConversionRateProvider';
+import { useConversionRateContext } from '../../Providers/ConversionRateProvider';
 import PropTypes from 'prop-types';
-import { SumContext } from '../../Providers/SumProvider';
+import { useSumContext } from '../../Providers/SumProvider';
 import { useTransactionsStore } from '../../Providers/TransactionsProvider';
 
 const TableRow = ({ title, amount, id }) => {
-  const { conversionRate } = useContext(ConversionRateContext);
-  const { getSumAfterDelete, sum } = useContext(SumContext);
+  const { conversionRate } = useConversionRateContext();
+  const { getSumAfterDelete, sum } = useSumContext();
   const transactionsStore = useTransactionsStore();
 
   const EUR = conversionRate;

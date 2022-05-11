@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import { useTransactionsStore } from './TransactionsProvider';
 
-export const SumContext = React.createContext({
-  sum: [],
-  getSum: () => {},
-  getSumAfterDelete: () => {},
-});
+export const SumContext = React.createContext(null);
 
-const SumProvider = ({ children }) => {
+export const SumProvider = ({ children }) => {
   const [sum, setSum] = useState([]);
   const transactionsStore = useTransactionsStore();
 
@@ -36,4 +32,10 @@ const SumProvider = ({ children }) => {
   );
 };
 
-export default SumProvider;
+export const useSumContext = () => {
+  const sumContext = React.useContext(SumContext);
+  if (!sumContext) {
+    throw new Error('Missing SumContext data!');
+  }
+  return sumContext;
+};

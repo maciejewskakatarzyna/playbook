@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Title, Wrapper } from './Header.styles';
-import { ConversionRateContext } from '../../Providers/ConversionRateProvider';
+import { useConversionRateContext } from '../../Providers/ConversionRateProvider';
 
 const Header = () => {
-  const { conversionRate, handleSetConversionRate } = useContext(ConversionRateContext);
+  const { conversionRate, handleSetConversionRate } = useConversionRateContext();
 
   return (
     <Wrapper>

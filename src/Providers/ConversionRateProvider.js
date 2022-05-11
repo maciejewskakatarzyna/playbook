@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 
-export const ConversionRateContext = React.createContext({
-  conversionRate: null,
-  handleSetConversionRate: () => {},
-});
+export const ConversionRateContext = React.createContext(null);
 
-const ConversionRateProvider = ({ children }) => {
+export const ConversionRateProvider = ({ children }) => {
   const [conversionRate, setConversionRate] = useState(4.382);
 
   const handleSetConversionRate = rate => {
@@ -24,4 +21,10 @@ const ConversionRateProvider = ({ children }) => {
   );
 };
 
-export default ConversionRateProvider;
+export const useConversionRateContext = () => {
+  const conversionRateContext = React.useContext(ConversionRateContext);
+  if (!conversionRateContext) {
+    throw new Error('Missing ConversionRateContext data!');
+  }
+  return conversionRateContext;
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlobalStyle } from '../assets/styles/GlobalStyle';
-import ConversionRateProvider from './ConversionRateProvider';
-import SumProvider from './SumProvider';
+import { ConversionRateProvider } from './ConversionRateProvider';
+import { SumProvider } from './SumProvider';
 import { TransactionsProvider } from './TransactionsProvider';
 
 const AppProviders = ({ children }) => {

@@ -6,7 +6,7 @@ import Sum from './components/Sum/Sum';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 80rem;
+  min-width: 80rem;
   display: flex;
   flex-direction: column;
   padding: 5rem;

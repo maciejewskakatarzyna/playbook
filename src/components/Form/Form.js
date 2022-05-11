@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import FormField from './FormField';
 import { Error, StyledButton, StyledForm, Wrapper } from './Form.styles';
-import { SumContext } from '../../Providers/SumProvider';
+import { useSumContext } from '../../Providers/SumProvider';
 import { useTransactionsStore } from '../../Providers/TransactionsProvider';
 
 const Form = () => {
-  const { getSum } = useContext(SumContext);
+  const { getSum } = useSumContext();
   const transactionsStore = useTransactionsStore();
 
   const handleAddTransaction = data => {
