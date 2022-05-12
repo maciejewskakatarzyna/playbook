@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 
-export const ConversionRateContext = React.createContext(null);
+interface IConversionRateContext {
+  conversionRate: number;
+  handleSetConversionRate: (rate: number) => void;
+}
 
-export const ConversionRateProvider = ({ children }) => {
-  const [conversionRate, setConversionRate] = useState(4.382);
+export const ConversionRateContext = React.createContext<IConversionRateContext | null>(null);
 
-  const handleSetConversionRate = rate => {
+export const ConversionRateProvider = ({ children }: { children: ReactNode }) => {
+  const [conversionRate, setConversionRate] = useState<number>(4.382);
+
+  const handleSetConversionRate = (rate: number) => {
     setConversionRate(rate);
   };
 

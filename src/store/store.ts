@@ -1,10 +1,10 @@
 import { action, makeObservable, observable } from 'mobx';
 import faker from '@withshepherd/faker';
 
-interface Transaction {
+export interface Transaction {
   id: string;
   title: string;
-  amount: string;
+  amount: number;
 }
 
 export class TransactionStoreImpl {
@@ -30,19 +30,6 @@ export class TransactionStoreImpl {
   removeTransaction(id: string) {
     this.transactions = this.transactions.filter(transaction => transaction.id !== id);
   }
-
-  // get status() {
-  //   let completed = 0,
-  //     remaining = 0;
-  //   this.todos.forEach(todo => {
-  //     if (todo.completed) {
-  //       completed++;
-  //     } else {
-  //       remaining++;
-  //     }
-  //   });
-  //   return { completed, remaining };
-  // }
 }
 
 export const TransactionsStore = new TransactionStoreImpl();

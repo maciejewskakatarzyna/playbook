@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { GlobalStyle } from '../assets/styles/GlobalStyle';
 import { ConversionRateProvider } from './ConversionRateProvider';
 import { SumProvider } from './SumProvider';
 
-const AppProviders = ({ children }) => {
+const AppProviders = ({ children }: { children: ReactNode }) => {
   return (
     <ConversionRateProvider>
       <SumProvider>

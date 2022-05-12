@@ -5,10 +5,15 @@ import { useConversionRateContext } from '../../Providers/ConversionRateProvider
 import { useSumContext } from '../../Providers/SumProvider';
 import { TransactionsStore } from '../../store/store';
 
+interface ISumValue {
+  sumPLN: number;
+  sumEUR: number;
+}
+
 const Sum = () => {
   const { conversionRate } = useConversionRateContext();
   const { sum } = useSumContext();
-  const [sumValue, setSumValue] = useState({});
+  const [sumValue, setSumValue] = useState<ISumValue>({ sumPLN: 0, sumEUR: 0 });
   const transactionsStore = TransactionsStore;
 
   const transactions = transactionsStore.transactions;

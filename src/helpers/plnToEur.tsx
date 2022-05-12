@@ -1,7 +1,7 @@
-export const PLNtoEUR = (pln: number, eur: number) => {
+export const PLNtoEUR = (pln: number, eur: number): number => {
   if (Number.isNaN(Number(pln))) {
     throw new Error('Pln amount should be number');
   }
 
-  return (pln / eur).toFixed(2);
+  return parseInt((pln / eur).toFixed(2));
 };

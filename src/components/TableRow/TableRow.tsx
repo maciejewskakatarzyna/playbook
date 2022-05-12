@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import { PLNtoEUR } from '../../helpers/plnToEur';
 import { StyledRow } from './TableRow.styles';
 import { useConversionRateContext } from '../../Providers/ConversionRateProvider';
-import PropTypes from 'prop-types';
 import { useSumContext } from '../../Providers/SumProvider';
-import { TransactionsStore } from '../../store/store';
+import { Transaction, TransactionsStore } from '../../store/store';
 
-const TableRow = ({ title, amount, id }) => {
+const TableRow = ({ title, amount, id }: Transaction) => {
   const { conversionRate } = useConversionRateContext();
   const { getSumAfterDelete, sum } = useSumContext();
   const transactionsStore = TransactionsStore;
@@ -33,12 +32,6 @@ const TableRow = ({ title, amount, id }) => {
       </td>
     </StyledRow>
   );
-};
-
-TableRow.propTypes = {
-  title: PropTypes.string,
-  amount: PropTypes.string,
-  id: PropTypes.string,
 };
 
 export default TableRow;
