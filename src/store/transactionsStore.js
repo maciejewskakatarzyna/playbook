@@ -1,6 +1,6 @@
 import faker from '@withshepherd/faker';
 
-export function createTransactionsStore() {
+export const createTransactionsStore = () => {
   return {
     transactions: [],
     addTransaction(data) {
@@ -16,4 +16,4 @@ export function createTransactionsStore() {
       this.transactions = this.transactions.filter(transaction => transaction.id !== id);
     },
   };
-}
+};

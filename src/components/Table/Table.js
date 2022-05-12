@@ -1,11 +1,11 @@
 import React from 'react';
 import TableRow from '../TableRow/TableRow';
 import { ArrowDown, Info, StyledTable } from './Table.styles';
-import { useTransactionsStore } from '../../Providers/TransactionsProvider';
 import { observer } from 'mobx-react';
+import { TransactionsStore } from '../../store/store';
 
 const Table = observer(() => {
-  const transactionsStore = useTransactionsStore();
+  const transactionsStore = TransactionsStore;
 
   return transactionsStore.transactions.length ? (
     <StyledTable>

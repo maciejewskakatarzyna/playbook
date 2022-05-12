@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useTransactionsStore } from './TransactionsProvider';
+import { TransactionsStore } from '../store/store';
 
 export const SumContext = React.createContext(null);
 
 export const SumProvider = ({ children }) => {
   const [sum, setSum] = useState([]);
-  const transactionsStore = useTransactionsStore();
+  const transactionsStore = TransactionsStore;
 
   const transactions = transactionsStore.transactions;
 

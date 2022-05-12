@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { PLNtoEUR } from '../../helpers/plnToEur';
 import { sumAmount } from '../../helpers/sumAmount';
 import { useConversionRateContext } from '../../Providers/ConversionRateProvider';
-import { SumContext, useSumContext } from '../../Providers/SumProvider';
-import { useTransactionsStore } from '../../Providers/TransactionsProvider';
+import { useSumContext } from '../../Providers/SumProvider';
+import { TransactionsStore } from '../../store/store';
 
 const Sum = () => {
   const { conversionRate } = useConversionRateContext();
   const { sum } = useSumContext();
   const [sumValue, setSumValue] = useState({});
-  const transactionsStore = useTransactionsStore();
+  const transactionsStore = TransactionsStore;
 
   const transactions = transactionsStore.transactions;
 

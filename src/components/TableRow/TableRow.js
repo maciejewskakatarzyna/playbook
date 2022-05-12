@@ -4,12 +4,12 @@ import { StyledRow } from './TableRow.styles';
 import { useConversionRateContext } from '../../Providers/ConversionRateProvider';
 import PropTypes from 'prop-types';
 import { useSumContext } from '../../Providers/SumProvider';
-import { useTransactionsStore } from '../../Providers/TransactionsProvider';
+import { TransactionsStore } from '../../store/store';
 
 const TableRow = ({ title, amount, id }) => {
   const { conversionRate } = useConversionRateContext();
   const { getSumAfterDelete, sum } = useSumContext();
-  const transactionsStore = useTransactionsStore();
+  const transactionsStore = TransactionsStore;
 
   const EUR = conversionRate;
   const PLN = amount;
