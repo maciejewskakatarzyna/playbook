@@ -3,13 +3,13 @@ import { Wrapper } from './FormField.styles';
 
 interface FormFieldProps {
   onChange: React.ChangeEventHandler<HTMLInputElement>;
-  value: string | number;
+  value?: string | number;
   label: string;
   name: string;
   id: string;
-  placeholder: string;
-  step: string;
-  type: string;
+  placeholder?: string;
+  step?: string;
+  type?: string;
 }
 
 const FormField = React.forwardRef(

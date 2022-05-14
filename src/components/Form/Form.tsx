@@ -3,13 +3,13 @@ import { useForm } from 'react-hook-form';
 import FormField from './FormField';
 import { Error, StyledButton, StyledForm, Wrapper } from './Form.styles';
 import { useSumContext } from '../../Providers/SumProvider';
-import { TransactionsStore } from '../../store/store';
+import { Transaction, TransactionsStore } from '../../store/store';
 
 const Form = () => {
   const { getSum } = useSumContext();
   const transactionsStore = TransactionsStore;
 
-  const handleAddTransaction = data => {
+  const handleAddTransaction = (data: Transaction) => {
     transactionsStore.addTransaction(data);
     getSum(data);
   };
@@ -18,14 +18,13 @@ const Form = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<Transaction>();
 
   return (
     <StyledForm onSubmit={handleSubmit(handleAddTransaction)}>
       <Wrapper>
         <FormField
           label='Title of transaction'
-          name='title'
           id='title'
           placeholder='Title of transaction'
           {...register('title', {
@@ -35,6 +34,7 @@ const Form = () => {
               message: 'Title should have at least 5 characters',
             },
           })}
+          name='title'
         />
         {errors.title ? (
           <>
@@ -44,15 +44,14 @@ const Form = () => {
         ) : null}
         <FormField
           label='Amount (in PLN)'
-          name='amount'
           id='amount'
           placeholder='0'
           type='number'
           step='0.01'
           {...register('amount', {
             required: 'Amount is required',
-            message: 'Amount is required',
           })}
+          name='amount'
         />
       </Wrapper>
       <StyledButton type='submit'>Add</StyledButton>
